@@ -1,18 +1,21 @@
 <?php
-    $host='localhost'; //mysql이 설치된 pc의 주소
-    $uname='root'; //mysql id
-    $pwd=''; //mysql pw
-    $db="hedgehogmember"; //db 이름
+$con=mysqli_connect("localhost","root","","hedgehogmember");
 
-    $con=mysqli_connect($host,$uname,$pwd) or die("connection failed");
-    mysqli_select_db($db,$con) or die("db selection failed");
+if(mysqli_connect_errno($con)){
+    echo "Failed to connect to MySQL: " . mysqli_connect_error();
+}
 
-    $id=$_GET['status']; //get방식으로 status값을 가져옴
+mysqli_set_charset($con,"utf8");
 
-    $r=mysqli_query("select name, num from hedgehoginfo where ID='$status",$con); //status 값을 기준으로 name, num 값 읽어옴
+$res=mysqli_query($con,"select*from hedgehoginfo");
+$result = array();
 
-    $row=mysqli_fetch_array($r); //읽어온 값 row라는 변수에 넣어줌
+while($row=mysqli_fetch_array($res)){
+    array_push($result, array('name'=>$row[0],'num'=>$row[1]));
+}
 
-    print(json_encode($row)); //row변수를 json으로 인코딩해서 print
-    mysqli_close($con); //mysql 접속 끊기
+echo json_encode(array("result"=>$result));
+
+mysqli_close($con);
+
 ?>
