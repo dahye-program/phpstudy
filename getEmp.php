@@ -7,7 +7,7 @@
     require_once('db_config.php');
 
     //받아온 id를 검색 조건으로 특정 멤버의 정보를 불러오는 쿼리문 작성
-    $sql="SELECT * FROM employee WHERE id=$id";
+    $sql="SELECT * FROM memberinfo WHERE id=$id";
 
     //쿼리문 실행, 결과를 r변수에 저장
     $r=mysqli_query($con, $sql);
@@ -18,8 +18,7 @@
     array_push($reqest,array(
             "id"=>$row['id'],
             "name"=>$row['name'];
-            "desg"=>$row['designation'];
-            "salary"=>$row['salary'];
+            "number"=>$row['number'];
     ));
 
     //저장된 result변수를 json형식으로 출력

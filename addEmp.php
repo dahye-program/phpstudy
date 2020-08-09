@@ -4,12 +4,12 @@
     if($_SERVER['REQUEST_METHOD']=='POST'){
 
         //POST로 보낸 값을 받아서 변수에 입력
+        $id = $_POST['id'];
         $name = $_POST['name'];
-        $desg = $_POST['designation'];
-        $sal = $_POST['salary'];
-
+        $number = $_POST['number'];
+        
         //받아온 값을 입력 값으로 지정한 INSERT 쿼리문 작성
-        $sql = "INSERT INTO employee(name, designmation, salary) VALUES ('$name','$desg', $sal')";
+        $sql = "INSERT INTO memberinfo(id, name, number) VALUES ('$id','$name', $number')";
 
         //DB 접속 스크립트 불러옴
         require_once('db_config.php');
