@@ -16,7 +16,7 @@
     $result=array();
     $row=mysqli_fetch_array($r);
     array_push($reqest,array(
-            "id"=>$row['id'],
+            "id"=>$row['id'];
             "name"=>$row['name'];
             "number"=>$row['number'];
     ));
