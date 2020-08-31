@@ -7,12 +7,14 @@ if(mysqli_connect_errno($con)){
 
 mysqli_set_charset($con,"utf8"); // db와 데이터를 주고 받을 때 사용할 기본 문자
 
-$userpw=$_POST['pw'];
+$userData=$_POST['userdata'];
 
-$res=mysqli_query($con,"select*from manager");
-    
-if($res==$userpw){
-    echo "1";
+$sql="INSERT INTO attendance_data(record)VALUES('$userData')";
+
+if($con->query($sql)==TRUE){
+    echo "New record create successfully";
+}else{
+    echo "Error: ".$sql."".$con->error;
 }
 
 mysqli_close($con);
