@@ -9,7 +9,7 @@ mysqli_set_charset($con,"utf8"); // db와 데이터를 주고 받을 때 사용�
 
 $userData=$_POST['userdata'];
 
-$sql="INSERT INTO attendance_data(record)VALUES('$userData')";
+$sql="INSERT INTO attendance_data(record) VALUES('$userData')";
 
 if($con->query($sql)==TRUE){
     echo "New record create successfully";
