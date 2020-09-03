@@ -7,7 +7,7 @@ if(mysqli_connect_errno($con)){
 
 mysqli_set_charset($con,"utf8");
 
-$res=mysqli_query($con,"select*from 테이블이름뭐였더라");
+$res=mysqli_query($con,"select*from attendance_data");
 $result = array();
 
 if($result){
