@@ -13,8 +13,6 @@ $sql="INSERT INTO attendance_data(record) VALUES('$userData')";
 
 if($con->query($sql)==TRUE){
     echo "New record create successfully";
-}else{
-    echo "Error: ".$sql."".$con->error;
 }
 
 mysqli_close($con);
